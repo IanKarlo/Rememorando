@@ -3,28 +3,28 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Switch, Router } from 'react-router-dom';
+import {BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Entrar from './Entrar';
-import Registro from './Registro';
-import Menu from './Menu';
+import Entrar from './pages/Entrar';
+import Registro from './pages/Registro';
+import Menu from './pages/Menu';
 
-import RemediosNovo from './Remedios/Novo';
-import RemediosVisualizar from './Remedios/Visualizar';
-import RemediosEditar from './Remedios/Editar';
-import RemediosExcluir from './Remedios/Excluir';
+import RemediosNovo from './pages/Remedios/Novo';
+import RemediosVisualizar from './pages/Remedios/Visualizar';
+import RemediosEditar from './pages/Remedios/Editar';
+import RemediosExcluir from './pages/Remedios/Excluir';
 
-import ObjetosNovo from './Objetos/Novo';
-import ObjetosVisualizar from './Objetos/Visualizar';
-import ObjetosEditar from './Objetos/Editar';
-import ObjetosExcluir from './Objetos/Excluir';
+import ObjetosNovo from './pages/Objetos/Novo';
+import ObjetosVisualizar from './pages/Objetos/Visualizar';
+import ObjetosEditar from './pages/Objetos/Editar';
+import ObjetosExcluir from './pages/Objetos/Excluir';
 
-import RotinaNovo from './Rotina/Novo';
-import RotinaVisualizar from './Rotina/Visualizar';
-import RotinaEditar from './Rotina/Editar';
-import RotinaExcluir from './Rotina/Excluir';
+import RotinaNovo from './pages/Rotina/Novo';
+import RotinaVisualizar from './pages/Rotina/Visualizar';
+import RotinaEditar from './pages/Rotina/Editar';
+import RotinaExcluir from './pages/Rotina/Excluir';
 
-import TelefonesVisualizar from './Telefones/Visualizar';
+import TelefonesVisualizar from './pages/Telefones/Visualizar';
 
 ReactDOM.render((
     <BrowserRouter>
