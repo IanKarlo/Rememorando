@@ -1,6 +1,8 @@
 import React from 'react';
 import './Registro.css';
 
+import {criarUsuario} from '../firebase/auth';
+
 class Registro extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +39,13 @@ class Registro extends React.Component {
 
     handleSubmit(event) {
         if (this.state.Senha == this.state.ConfirmSenha) {
-            alert('Cadastro Realizado com successo: ' + this.state.Login + "   " + this.state.Senha);
+            criarUsuario(
+                this.state.Login,
+                this.state.Senha,
+                () => {
+                    this.props.history.push("/menu");
+                }
+            )
             event.preventDefault();
         } else {
             alert('As senhas não correspondem: ' + this.state.Login + "   " + this.state.Senha + " != " + this.state.ConfirmSenha);
