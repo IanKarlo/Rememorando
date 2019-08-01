@@ -1,26 +1,73 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import { Input, Tooltip, Icon } from 'antd'; import 'antd/dist/antd.css'
+// const {search} = Input;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Login: '',
+            Senha: ''
+        };
+
+        this.handleChangeLogin = this
+            .handleChangeLogin
+            .bind(this);
+        this.handleChangeSenha = this
+            .handleChangeSenha
+            .bind(this);
+
+        this.handleSubmit = this
+            .handleSubmit
+            .bind(this);
+    }
+
+    handleChangeLogin(event) {
+        this.setState({Login: event.target.value});
+    }
+    handleChangeSenha(event) {
+        this.setState({Senha: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Login: ' + this.state.Login + " Senha: " + this.state.Senha);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <header className="App-header">
+                <div className="Login-section">
+                    <h1>
+                        Routine App
+                    </h1>
+                    <form onSubmit={this.handleSubmit} className="formulario">
+                        <label >
+                            <input
+                                className="Login"
+                                placeholder="Login"
+                                type="text"
+                                value={this.state.Login}
+                                onChange={this.handleChangeLogin}/>
+                        </label>
+                        <label >
+                            <input
+                                className="Senha"
+                                placeholder="Senha"
+                                type="text"
+                                value={this.state.Senha}
+                                onChange={this.handleChangeSenha}/>
+                        </label>
+                        <input className="submitbutton" type="submit" value="Login"/>
+                        <button className="signinbutton">Cadastre-se</button>
+
+                    </form>
+                </div>
+
+            </header>
+        );
+    }
 }
 
-export default App;
+export default LoginForm;
