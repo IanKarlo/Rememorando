@@ -1,5 +1,8 @@
 import React from 'react';
 import './Entrar.css';
+
+import {logarUsuario} from '../firebase/auth';
+
 // import { Input, Tooltip, Icon } from 'antd'; import 'antd/dist/antd.css'
 // const {search} = Input;
 
@@ -31,7 +34,11 @@ class Entrar extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('Login: ' + this.state.Login + " Senha: " + this.state.Senha);
+        
+        logarUsuario(this.state.Login, this.state.Senha, () => {
+            this.props.history.push("/menu");
+        });
+
         event.preventDefault();
     }
 
@@ -55,12 +62,12 @@ class Entrar extends React.Component {
                             <input
                                 className="Senha"
                                 placeholder="Senha"
-                                type="text"
+                                type="password"
                                 value={this.state.Senha}
                                 onChange={this.handleChangeSenha}/>
                         </label>
                         <input className="submitbutton" type="submit" value="Login"/>
-                        <button className="signinbutton">Cadastre-se</button>
+                        <button className="signinbutton">Entrar</button>
                     </form>
                 </div>
 
