@@ -4,7 +4,7 @@ import 'antd/es/date-picker/style/css';
 
 //////////////////////////////////
 import FormatoItem from './FormatoItemMenu.js';
-import './FormatoItem.css';
+import './FormatoItemMenu.css';
 ///////////////////////////////////////////////
 
 class Lista extends React.Component{

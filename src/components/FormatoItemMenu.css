@@ -1,0 +1,18 @@
+
+.Tittle{
+    background-color: white;
+    color: black;
+    margin-bottom: 45px;
+    padding: 82px 30px 15px 20px;
+}
+
+.Tabela{
+  background-color:rgb(82, 82, 82);
+
+}
+
+.Item{
+  background-color: white;
+  margin-bottom:30px;
+  min-height: 150px;
+}

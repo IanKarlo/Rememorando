@@ -27,16 +27,6 @@ export class Menu extends Component {
           nome: 'Rotina',
           icon: 'clock-circle',
           path: '/rotina/visualizar'
-        },
-        {
-          nome: 'menu',
-          icon: 'icon2',
-          path: '/menu'
-        },
-        {
-          nome: 'menu',
-          icon: 'icon2',
-          path: '/menu'
         }];
         
     

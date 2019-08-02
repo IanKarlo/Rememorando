@@ -11,10 +11,11 @@ class FormatoItem extends React.Component{
     return(
       <Link to={path}>
         <div className = "Item" > 
+        <Icon className="Delete" type={icon}/>
               <div className = "DivObj">
                 {nome}
               </div> 
-            <Icon className="Delete" type={icon}/>
+            
         </div>
       </Link>
     );
@@ -23,3 +24,4 @@ class FormatoItem extends React.Component{
 }
 
 export default FormatoItem;
+
