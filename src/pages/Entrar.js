@@ -44,34 +44,35 @@ class Entrar extends React.Component {
 
     render() {
         return (
-            <header className="App-header">
-                <div className="Login-section">
+            <div className="App-header">
+                
                     <h1>
                         Routine App
                     </h1>
-                    <form onSubmit={this.handleSubmit} className="formulario">
-                        <label >
-                            <input
-                                className="Login"
-                                placeholder="Login"
-                                type="text"
-                                value={this.state.Login}
-                                onChange={this.handleChangeLogin}/>
-                        </label>
-                        <label >
-                            <input
-                                className="Senha"
-                                placeholder="Senha"
-                                type="password"
-                                value={this.state.Senha}
-                                onChange={this.handleChangeSenha}/>
-                        </label>
-                        <input className="submitbutton" type="submit" value="Login"/>
-                        <button className="signinbutton">Entrar</button>
-                    </form>
+                    <div className="Login-section">
+                      <form onSubmit={this.handleSubmit} className="formulario">
+                          <label >
+                              <input
+                                  className="Login"
+                                  placeholder="Login"
+                                  type="text"
+                                  value={this.state.Login}
+                                  onChange={this.handleChangeLogin}/>
+                          </label>
+                          <label >
+                              <input
+                                  className="Senha"
+                                  placeholder="Senha"
+                                  type="password"
+                                  value={this.state.Senha}
+                                  onChange={this.handleChangeSenha}/>
+                          </label>
+                          <input className="submitbutton" type="submit" value="Login"/>
+                          <div className="registerlink" onClick={() => {this.props.history.push("/registro")}}>Não possuo uma conta</div>
+                      </form>
                 </div>
 
-            </header>
+            </div>
         );
     }
 }

@@ -16,3 +16,13 @@ export function logarUsuario(email, senha, fn){
     ).then(() => {console.log("Usuário logado com sucesso.");fn()})
     .catch((e) => {alert("Erro ao logar usuário: "+ e)})
 }
+
+export function onLogin(el, fn){
+    auth.onAuthStateChanged((user) => {
+        if(user) fn();
+        else { 
+            alert("Usuário deslogado")
+            el.history.push("/")
+        }
+    })
+}

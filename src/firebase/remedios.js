@@ -1,20 +1,21 @@
-import firestore from 'config.js'
+import {firestore, auth} from '../firebase/config.js'
 
 var remedios = firestore.collection("remedios")
 
-function listarRemedios(){
+export function listarRemedios(initfn, fn){
     console.log("Listando remedios...")
+    initfn()
 
     var remediosDoUsuario = remedios.where("owner", "==", auth.currentUser.uid)
     remediosDoUsuario.get().then(function(snapshot){
         snapshot.forEach((doc) => {
             var dados = doc.data()
-            console.log(dados.nome + " - " + dados.desc)
+            fn(dados, doc.id)
         })
     })
 }
 
-function editarRemedio(id, usuarioConectado, nomeDoRemedio, desc, local, ok){
+export function editarRemedio(id, usuarioConectado, nomeDoRemedio, desc, local, ok){
     console.log("Modificando objeto ("+id+")...")
 
     remedios.doc(id).set({
@@ -25,12 +26,12 @@ function editarRemedio(id, usuarioConectado, nomeDoRemedio, desc, local, ok){
     }).then(() => {console.log("Remédio alterado.")})
 }
 
-function removerRemedio(id){
+export function removerRemedio(id, fn){
     console.log("Removendo remédio("+id+") ...")
-    remedios.doc(id).delete().then(() => {console.log("Removido.")})
+    remedios.doc(id).delete().then(() => {console.log("Removido."); fn()})
 }
 
-function criarRemedio(usuarioConectado, nomeDoRemedio, desc, local, ok){
+export function criarRemedio(usuarioConectado, nomeDoRemedio, desc, local, ok){
     console.log("Adicionando remedio...")
 
     remedios.add({

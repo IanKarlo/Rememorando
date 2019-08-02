@@ -1,11 +1,11 @@
-import firestore from 'config.js'
+import {firestore, auth} from '../firebase/config.js'
 
 var objetos = firestore.collection("objetos")
 
-function criarObjeto(usuarioConectado, nomeDoObjeto, desc, local, ok){
+export function criarObjeto(usuarioConectado, nomeDoObjeto, desc, local, ok){
     console.log("Adicionando objeto...")
 
-    remedios.add({
+    objetos.add({
         "owner": usuarioConectado,
         "nome": nomeDoObjeto,
         "desc": desc,
@@ -13,10 +13,10 @@ function criarObjeto(usuarioConectado, nomeDoObjeto, desc, local, ok){
     }).then((doc) => {ok(doc.id)})
 }
 
-function editarObjeto(id, usuarioConectado, nomeDoObjeto, desc, local, ok){
+export function editarObjeto(id, usuarioConectado, nomeDoObjeto, desc, local, ok){
     console.log("Modificando objeto ("+id+")...")
 
-    remedios.doc(id).set({
+    objetos.doc(id).set({
         "owner": usuarioConectado,
         "nome": nomeDoObjeto,
         "desc": desc,
@@ -24,19 +24,20 @@ function editarObjeto(id, usuarioConectado, nomeDoObjeto, desc, local, ok){
     }).then(() => {console.log("Documento alterado.")})
 }
 
-function removerObjeto(id){
+export function removerObjeto(id, fn){
     console.log("Removendo objeto("+id+") ...")
-    remedios.doc(id).delete().then(() => {console.log("Removido.")})
+    objetos.doc(id).delete().then(() => {console.log("Removido."); fn()})
 }
 
-function listarObjetos(){
+export function listarObjetos(initfn, fn){
     console.log("Listando objetos...")
-
-    var remediosDoUsuario = remedios.where("owner", "==", auth.currentUser.uid)
-    remediosDoUsuario.get().then(function(snapshot){
+    initfn()
+    
+    var objetosDoUsuario = objetos.where("owner", "==", auth.currentUser.uid)
+    objetosDoUsuario.get().then(function(snapshot){
         snapshot.forEach((doc) => {
             var dados = doc.data()
-            console.log(dados.nome + " - " + dados.desc)
+            fn(dados, doc.id)
         })
     })
 }

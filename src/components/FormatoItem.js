@@ -6,20 +6,28 @@ import './FormatoItem.css'
 
 class FormatoItem extends React.Component{
 
+  constructor(props){
+    super(props)
+    this.deleteItem = this.deleteItem.bind(this)
+  }
+
+  deleteItem(){
+    var a = window.confirm('Deseja Realmente excluir este item?')
+    if(a==true) this.props.onDelete(this.props.data.id)
+  }
+
   render(){
-     const { nome, localizacao} = this.props
+    
     return(
-      <div className = "Item"> 
+      <div className = "Item" > 
             <div className = "DivObj">
-              {nome}
+              {this.props.data.nome}
             </div> 
 
-            - 
-
             <div className = "DivObj2">
-              {localizacao}
+              {this.props.data.local}
             </div>
-          
+          <Icon className="Delete" type="delete" onClick = {this.deleteItem}/>
       </div>
     );
   }

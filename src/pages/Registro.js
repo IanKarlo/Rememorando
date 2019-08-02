@@ -58,7 +58,7 @@ class Registro extends React.Component {
         return (
             <header className="App-header">
                 <div className="Login-section">
-                    <h1>
+                    <h1 className='h1d'>
                         Routine App
                     </h1>
 

@@ -4,7 +4,6 @@ import 'antd/es/date-picker/style/css';
 import FormatoItem from './FormatoItem.js';
 import './FormatoItem.css';
 
-
 class Lista extends React.Component{
     
 
@@ -15,18 +14,19 @@ class Lista extends React.Component{
 
     for(let i =0; i< tam; i++){
       retorno.push(
-        <FormatoItem nome = {itens[i].nome}
-        localizacao = {itens[i].local}  />
+        <FormatoItem onDelete={this.props.onDelete} data = {itens[i]} />
       )
     }
 
       return(
         <div className = "Tabela">
-        <div className = "Tittle">
-          Menu de Objetos
-        </div>
-        {retorno}
 
+        <div className = "Tittle">
+          {this.props.title}
+        </div>
+        <div className = "Itens">
+        {retorno}
+        </div>
         </div>
       );
 

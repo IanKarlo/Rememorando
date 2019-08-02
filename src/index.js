@@ -5,8 +5,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Entrar from './pages/Entrar';
 import Registro from './pages/Registro';
+import Entrar from './pages/Entrar';
 import Menu from './pages/Menu';
 
 import RemediosNovo from './pages/Remedios/Novo';
