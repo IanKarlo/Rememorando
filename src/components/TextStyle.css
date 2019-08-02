@@ -1,0 +1,36 @@
+.TittlePage{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:30vh;
+  font-size: 50px;
+}
+
+.InputLabel{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top:0vh;
+
+
+}
+
+.Password{
+  margin-top: 5px;
+
+}
+
+.Button{
+  margin-top: 6px;
+}
+
+.Background{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vmin;
+  background-color:blueviolet;
+}
