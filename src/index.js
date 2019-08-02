@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import {HashRouter, Switch, Route } from 'react-router-dom';
 
 import Registro from './pages/Registro';
 import Entrar from './pages/Entrar';
@@ -24,11 +24,18 @@ import RotinaVisualizar from './pages/Rotina/Visualizar';
 import RotinaEditar from './pages/Rotina/Editar';
 import RotinaExcluir from './pages/Rotina/Excluir';
 
+
+import PessoasNovo from './pages/Pessoas/Novo';
+import PessoasVisualizar from './pages/Pessoas/Visualizar';
+import PessoasEditar from './pages/Pessoas/Editar';
+import PessoasExcluir from './pages/Pessoas/Excluir';
+
 import TelefonesVisualizar from './pages/Telefones/Visualizar';
 
 ReactDOM.render((
-    <BrowserRouter>
+    <HashRouter>
         <Switch>
+            <Route path='/' exact component={Entrar} />
             <Route path='/entrar' exact component={Entrar} />
             <Route path='/registro' exact component={Registro} />
             <Route path='/menu' exact component={Menu} />
@@ -48,9 +55,14 @@ ReactDOM.render((
             <Route path='/rotina/editar/:id' exact component={RotinaEditar} />
             <Route path='/rotina/excluir/:id' exact component={RotinaExcluir} />
 
+            <Route path='/pessoas/novo' exact component={PessoasNovo} />
+            <Route path='/pessoas/visualizar' exact component={PessoasVisualizar} />
+            <Route path='/pessoas/editar/:id' exact component={PessoasEditar} />
+            <Route path='/pessoas/excluir/:id' exact component={PessoasExcluir} />
+
             <Route path='/telefones/visualizar' exact component={TelefonesVisualizar} />
         </Switch>
-    </BrowserRouter>
+    </HashRouter>
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

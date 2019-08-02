@@ -59,7 +59,7 @@ class Registro extends React.Component {
             <header className="App-header">
                 <div className="Login-section">
                     <h1 className='h1d'>
-                        Routine App
+                        Rememorando
                     </h1>
 
                     <form onSubmit={this.handleSubmit} className="formulario">

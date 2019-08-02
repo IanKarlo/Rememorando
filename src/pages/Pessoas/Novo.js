@@ -1,8 +1,8 @@
 import React from 'react';
 import './Novo.css';
 
-import {auth} from '../../firebase/config.js';
-import {criarRotina} from '../../firebase/rotinas.js';
+import {auth, storage} from '../../firebase/config.js';
+import {criarPessoa} from '../../firebase/pessoas.js';
 
 // import Button from '@material-ui/core/Button'; import renderEmpty from
 // 'antd/lib/config-provider/renderEmpty'; import {Button} from 'antd'; import
@@ -15,7 +15,8 @@ class SigninForm extends React.Component {
             Name: '',
             Time: '',
             Days: '',
-            Description: ''
+            Description: '',
+            File: ''
         };
 
         this.handleChangeName = this
@@ -34,13 +35,27 @@ class SigninForm extends React.Component {
         this.handleSubmit = this
             .handleSubmit
             .bind(this);
+        
+        this.changeUpload = this.changeUpload.bind(this);
     }
 
     handleChangeName(event) {
         this.setState({Name: event.target.value});
     }
     handleChangeTime(event) {
-        this.setState({Time: event.target.value});
+        if (parseInt(event.target.value[event.target.value.length - 1]) || event.target.value[event.target.value.length - 1] === ':' || event.target.value.length == 0) {
+            if (event.target.value.length == 2) {
+                if (this.state.Time.length == 1) {
+                    this.setState({
+                        Time: event.target.value + ':'
+                    });
+                } else {
+                    this.setState({Time: event.target.value});
+                }
+            } else if (event.target.value.length <= 5) {
+                this.setState({Time: event.target.value});
+            }
+        }
 
     }
     handleChangeDescription(event) {
@@ -52,53 +67,58 @@ class SigninForm extends React.Component {
 
     handleSubmit(event) {
         
-        criarRotina(
+        criarPessoa(
             auth.currentUser.uid, 
-            this.state.Name , 
-            '', 
-            this.state.Days + "("+this.state.Time+")", 
+            this.state.Name, 
+            '',//this.state.File,
+            this.state.Description,
             () => {
-                alert("Rotina adicionada")
-                this.props.history.push('./Visualizar')
-            })
+                alert("Conhecido adicionado")
+                this.props.history.push("./Visualizar")
+            }
+        )
 
         event.preventDefault();
+    }
+
+    changeUpload(e){
+        var timestamp = Number(new Date());
+        var storageRef = storage.ref(timestamp.toString());
+        var file_data = document.getElementById('file').files[0]
+        storageRef.put(file_data)
+        .then(() => {
+            console.log(storageRef.toString())
+            //this.setState({File: storageRef})
+        })
     }
 
     render() {
         return (
             <div className="App-header">
-
-                <h1 className = "Add">
-                    Nova Atividade
+                <h1 className="addheader">
+                    Nova Pessoa
                 </h1>
-                <div>
+              <div className = "Div1">
                 <form onSubmit={this.handleSubmit} className="formulario">
+
                     <label >
                         <input
                             className="ActvName"
-                            placeholder="Nome da Atividade"
+                            placeholder="Nome"
                             type="text"
                             value={this.state.Name}
                             onChange={this.handleChangeName}/>
                     </label>
+
                     <label >
                         <input
-                            className="ActvDays"
-                            placeholder="Dias da Semana (Segunda, Terça, ...)"
+                            className="Description"
+                            placeholder="Descrição"
                             type="text"
-                            value={this.state.RemDays}
-                            onChange={this.handleChangeDays}/>
+                            value={this.state.Description}
+                            onChange={this.handleChangeDescription}/>
                     </label>
-                    <label>
-                        <input
-                            className="ActvTime"
-                            placeholder="Horário (HH:MM)"
-                            type="text"
-                            value={this.state.Time}
-                            onChange={this.handleChangeTime}/>
-                    </label>
-                    <input className="submitbutton" type="submit" value="Adicionar Atividade"/>
+                    <input className="submitbutton" type="submit" value="Adicionar Pessoa"/>
 
                 </form>
               </div>

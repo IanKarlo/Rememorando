@@ -35,7 +35,7 @@ class Visualizar extends Component {
 
   deletarObjeto(id){
     removerObjeto(id, () => {
-      var el = this.state.obj.find((v) => {
+      var el = this.state.obj.findIndex((v) => {
         return v.id == id
       })
 
@@ -54,7 +54,6 @@ class Visualizar extends Component {
   render() {
     return (
       <div className = "Background">
-          
           <Lista title="Meus Objetos" onDelete={this.deletarObjeto} itens = {this.state.obj} tam = {this.state.obj.length}/>  
       </div>
     );

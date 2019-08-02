@@ -29,7 +29,7 @@ class Lista extends React.Component{
         <div className = "Tabela">
 
         <div className = "Tittle">
-          Routine
+          Rememorando
         </div>
         <div className = "Itens">
         {retorno}

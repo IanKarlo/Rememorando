@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Tooltip, Icon, Button} from 'antd';
+import {Link} from 'react-router-dom';
 import 'antd/es/date-picker/style/css';
 import FormatoItem from './FormatoItem.js';
 import './FormatoItem.css';
@@ -24,6 +25,13 @@ class Lista extends React.Component{
         <div className = "Tittle">
           {this.props.title}
         </div>
+
+        <div className = "blocoPosi">
+          <Link to="./Novo" className = "AddButton">
+              ADICIONAR
+          </Link>
+        </div>
+        
         <div className = "Itens">
         {retorno}
         </div>

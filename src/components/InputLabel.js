@@ -22,7 +22,6 @@ class InputLabel extends React.Component{
           <div className = "Login">
           <Input style = {{width:200}}
             placeholder = "Item"
-            
             />
           </div>
 

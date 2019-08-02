@@ -35,7 +35,7 @@ class Visualizar extends Component {
 
   deletarRemedio(id){
     removerRemedio(id, () => {
-      var el = this.state.remedio.find((v) => {
+      var el = this.state.remedio.findIndex((v) => {
         return v.id == id
       })
 
@@ -54,7 +54,7 @@ class Visualizar extends Component {
   render() {
     return (
       <div className = "Background">
-          <Lista title="Meus Objetos" onDelete={this.deletarRemedio} itens = {this.state.remedio} tam = {this.state.remedio.length}/>  
+          <Lista title="Meus Remédios" onDelete={this.deletarRemedio} itens = {this.state.remedio} tam = {this.state.remedio.length}/>  
       </div>
     );
   }

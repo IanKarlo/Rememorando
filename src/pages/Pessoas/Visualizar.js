@@ -6,7 +6,7 @@ import InputLabel from '../../components/InputLabel.js'
 import Lista from '../../components/Lista.js'
 
 import {onLogin} from '../../firebase/auth.js';
-import {listarRotinas, removerRotina} from '../../firebase/rotinas.js';
+import {listarPessoas, removerPessoa} from '../../firebase/pessoas.js';
 
 class Visualizar extends Component {
 
@@ -14,17 +14,17 @@ class Visualizar extends Component {
     super(props)
 
     this.state = {
-      rotina:  []
+      obj:  []
     }
 
-    this.adicionarRotina = this.adicionarRotina.bind(this)
-    this.deletarRotina = this.deletarRotina.bind(this)
+    this.adicionarObjeto = this.adicionarObjeto.bind(this)
+    this.deletarObjeto = this.deletarObjeto.bind(this)
     
     onLogin(this, () => {
-      listarRotinas(() => {
-        this.setState({rotina: []})
+    listarPessoas(() => {
+        this.setState({obj: []})
       }, (data, id) => {
-        this.adicionarRotina({
+        this.adicionarObjeto({
           nome: data.nome,
           local: data.local,
           id: id
@@ -33,28 +33,28 @@ class Visualizar extends Component {
     })
   }
 
-  deletarRotina(id){
-    removerRotina(id, () => {
-      var el = this.state.rotina.findIndex((v) => {
+  deletarObjeto(id){
+    removerPessoa(id, () => {
+      var el = this.state.obj.findIndex((v) => {
         return v.id == id
       })
 
-      this.state.rotina.splice(el, 1)
+      this.state.obj.splice(el, 1)
 
       this.setState(
-        {rotina: (this.state.rotina)}
+        {obj: (this.state.obj)}
       )
     })
   }
 
-  adicionarRotina(rotina){
-    this.setState({rotina: (this.state.rotina.concat([rotina]))})
+  adicionarObjeto(obj){
+    this.setState({obj: (this.state.obj.concat([obj]))})
   }
 
   render() {
     return (
       <div className = "Background">
-          <Lista title="Minha Rotina" onDelete={this.deletarRotina} itens = {this.state.rotina} tam = {this.state.rotina.length}/>  
+          <Lista title="Conhecidos" onDelete={this.deletarObjeto} itens = {this.state.obj} tam = {this.state.obj.length}/>  
       </div>
     );
   }

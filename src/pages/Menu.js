@@ -16,7 +16,7 @@ export class Menu extends Component {
         {
           nome: 'Pessoas',
           icon: 'user',
-          path: '/'
+          path: '/pessoas/visualizar'
         },
         {
           nome: 'Remédios',

@@ -17,3 +17,17 @@ code {
 body{
   background-color:rgb(82,82,82) !important;
 }
+
+.Login-section {
+  margin-top: -94px;
+}
+
+form.formulario {
+  padding: 22px;
+  MARGIN-TOP: 148px;
+}
+
+.App-header h1 {
+  padding: 206px;
+  padding-bottom: 20px;
+}

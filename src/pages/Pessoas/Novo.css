@@ -1,0 +1,81 @@
+.App {
+    text-align: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+.ActvName {
+    display: block;
+    /* font-size: 20px; */
+    width: 90vw;
+    height: 20px;
+    border-radius: 5px;
+    border-style: hidden;
+    padding: 5px;
+    margin: 20px 10px;
+}
+.Description {
+    display: block;
+    font-size: 14px;
+    width: 90vw;
+    text-underline-position: above;
+    height: 38vh;
+    border-radius: 5px;
+    border-style: hidden;
+    padding: 5px;
+    margin: 0 10px 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.submitbutton {
+    border-style: solid;
+    border-radius: 50px;
+    border: 1px;
+    padding: 10px;
+    height: 50px;
+    width: 300px;
+    margin: 5px;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0);
+}
+.timelabel {
+    align-self: flex-end;
+}
+h1 {
+    padding: 140px 0px 20px 0px;
+    font-size: 40px;
+    margin: 0 0 7vh;
+    margin-bottom:30px;
+    align-self: center;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    min-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Div1{
+
+  margin-top:30px;
+
+}

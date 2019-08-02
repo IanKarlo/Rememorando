@@ -6,7 +6,7 @@
   margin: 0px 30px 15px 0px;
   justify-content: left;
   font-size:15px;
-  background-color: rgba(196, 80, 144, 0.808);
+  background-color: rgb(255, 255, 255);
   border: 0
   px solid black;
   border-radius: 5px;
@@ -14,9 +14,14 @@
 }
 
 .Tabela{
+  display:grid;
+  justify-content: center;
 
-  margin-top: 0vh;
+}
 
+.blocoPosi{
+  display: block;
+  text-align: center;
 }
 
 .Itens{
@@ -27,17 +32,35 @@
 
 }
 
+.AddButton{
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  width: 310px;
+  background-color:black;
+  color:white;
+  display:inline-block;
+  align-content: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+
 .Tittle{
-font-size: 40px;
+font-size: 25px;
 width: 100vw;
 text-align: center;
-margin-bottom:40px;
-padding: 10px 20px 10px 20px;
+margin-bottom:5px;
+padding: 30px 30px 15px 20px;
 box-shadow: 0px 0px 15px 0px;
 color: black;
 text-transform: uppercase;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
-background-color: rgba(184, 43, 153, 0.788);
+background-color: rgb(255, 255, 255);
 }
 
 .DivObj{
@@ -56,9 +79,3 @@ background-color: rgba(184, 43, 153, 0.788);
   padding-right: 20px;
   text-align: left;
 }
-
-
-body{
-  background-color:blueviolet;
-}
-

@@ -47,7 +47,7 @@ class Entrar extends React.Component {
             <div className="App-header">
                 
                     <h1>
-                        Routine App
+                        Rememorando
                     </h1>
                     <div className="Login-section">
                       <form onSubmit={this.handleSubmit} className="formulario">
